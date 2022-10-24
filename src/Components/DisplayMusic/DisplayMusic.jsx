@@ -19,8 +19,8 @@ const DisplayMusic = (props) => {
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Album</th>
                     <th>Artist</th>
+                    <th>Album</th>
                     <th>Genre</th>
                     <th>Release Date</th>
                 </tr>
