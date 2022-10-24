@@ -1,29 +1,33 @@
 
 const SearchBar = (props) => {
-    let currentSongs
-    let songsFound;
-    songsFound = props.list
+
+    let songsFound = props.list;
+    let results;
 
     function filterSongs(){
+        console.log("in function");
         
 
         try{ 
             let search = prompt("Search database");
-
-            songsFound.filter(function(song){
-                if(song.title.toLoweCase() === search.toLocaleLowerCase){
+            
+            results = songsFound.filter(function(song){
+                if(song.title.toLowerCase() === search.toLowerCase()){
+                    console.log("in try");
                     return true
                 }
-                return songsFound
+                return results
             });
         }
 
-        catch{
-            songsFound = props.list;
+        catch(err){
+            console.log(err);
+            results = props.list;
         }
 
         return (
-            currentSongs = songsFound
+            console.log(results)
+
         )
     
     }
