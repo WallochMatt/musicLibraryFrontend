@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './Components/SearchBar/SearchBar'
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
+import TopBar from './Components/PostSong/PostSong';
+import PostSong from './Components/PostSong/PostSong';
 
 function App() {
 
@@ -43,12 +45,22 @@ function App() {
 
 
 
+    function addSong(song){
+      let tempList = [...songs, song];
+      setSongs(tempList)
+    }
+
+
+
+
+    
   return (
     <div>
+      <PostSong addNewSong={addSong}/>
+      <br></br>
       <SearchBar getResults={filterSongs}/>
       <br></br>
       <DisplayMusic list={songs} />
-      {/* trying to use an array that is the result of the search */}
     </div>
   );
 }
