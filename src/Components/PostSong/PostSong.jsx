@@ -14,13 +14,14 @@ const PostSong = (props) => {
     function submit(event) {
         event.preventDefault();
         let newSong = {
-            title: newTitle,
-            artist: newArtist,
-            album: newAlbum,
-            genre: newGenre,
-            release_date: newRelease
+            title: `${newTitle}`,
+            artist: `${newArtist}`,
+            album: `${newAlbum}`,
+            genre: `${newGenre}`,
+            release_date: `${newRelease}`,
+            likes: 1,
         };
-        console.log(newSong)
+        // console.log(newSong)
         props.addNewSong(newSong)
     }
 
