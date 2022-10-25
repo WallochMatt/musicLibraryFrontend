@@ -12,18 +12,43 @@ function App() {
     }, [])
 
 
-    async function getAllSongs(){
-        let response = await axios.get('http://127.0.0.1:8000/api/music/');
-        setSongs(response.data);
+  async function getAllSongs(){
+      let response = await axios.get('http://127.0.0.1:8000/api/music/');
+      setSongs(response.data);
+      }
+
+      function filterSongs(criteria){
+        let results;
+
+        try{ 
+            results = songs.filter(function(song){
+                if(song.title.toLowerCase() === criteria.toLowerCase()){
+                    console.log("match found");
+                    return true
+                }
+            });
         }
+        catch(err){
+            console.log(err);
+            results = songs;
+        }
+        finally{
+          if(results.length === 0){
+            console.log("Could not find");
+            results = songs
+          }
+        }
+        return setSongs(results)
+    }
+
 
 
   return (
     <div>
-      <SearchBar list={songs}/>
+      <SearchBar getResults={filterSongs}/>
       <br></br>
       <DisplayMusic list={songs} />
-      {/* Now i should be able to change the prop to make any filtered table.. */}
+      {/* trying to use an array that is the result of the search */}
     </div>
   );
 }
