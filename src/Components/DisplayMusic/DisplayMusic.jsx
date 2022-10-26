@@ -32,7 +32,9 @@ const DisplayMusic = (props) => {
                             <td>{song.genre}</td>
                             <td>{song.release_date}</td>
                             <td>{song.likes}</td>
-                            <button onClick={(event) => hitClick(event, song)}>Delete</button>
+                            <td>
+                                <button onClick={(event) => hitClick(event, song)}>Delete</button>
+                            </td>
                         </tr>
                             )
                     })
