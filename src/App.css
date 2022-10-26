@@ -1,0 +1,16 @@
+.aligned {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 1em; */
+}
+
+.top-bar{
+    display: flex;
+    background-color: aqua;
+    width: 100%;
+    justify-content: center;
+    height: 4em;
+    align-items: center;
+}
+

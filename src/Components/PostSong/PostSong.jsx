@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./PostSong.css"
 
 
 const PostSong = (props) => {
@@ -30,17 +31,17 @@ const PostSong = (props) => {
     return(
         <form>
             <span>
-                <label>Add Title</label>
+                <label className="spacer">Add Title:</label>
                 <input value={newTitle} onChange={(event) => setTitle(event.target.value)}></input>
-                <label>Add Artist</label>
+                <label className="spacer">Add Artist:</label>
                 <input value={newArtist} onChange={(event) => setArtist(event.target.value)}></input>
-                <label>Add Album</label>
+                <label className="spacer">Add Album:</label>
                 <input value={newAlbum} onChange={(event) => setAlbum(event.target.value)}></input>
-                <label>Add Genre</label>
+                <label className="spacer">Add Genre:</label>
                 <input value={newGenre} onChange={(event) => setGenre(event.target.value)}></input>
-                <label>Add Release Date</label>
+                <label className="spacer">Add Release Date:</label>
                 <input type="date" value={newRelease} onChange={(event) => setRelease(event.target.value)}></input>
-                <button onClick={submit}>Add Song</button>
+                <button className="spacer" onClick={submit}>Add Song</button>
             </span>
         </form>
     )

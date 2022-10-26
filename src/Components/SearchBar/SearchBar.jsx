@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchBar.css"
 
 const SearchBar = (props) => {
 
@@ -11,8 +12,8 @@ const SearchBar = (props) => {
     }
 
     return(
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <div>
+        <form  onSubmit={(e) => handleSubmit(e)}>
+            <div className="pad">
 
                 <label>Search</label>
                 <input value={search} onChange={(event) => setSearch(event.target.value)}></input>

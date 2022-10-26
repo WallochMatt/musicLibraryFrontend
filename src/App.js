@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from './Components/SearchBar/SearchBar'
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import PostSong from './Components/PostSong/PostSong';
+import "./App.css"
 
 function App() {
 
@@ -72,9 +73,11 @@ function App() {
 
     
   return (
-    <div>
-      <PostSong addNewSong={addSong}/>
-      <br></br>
+    <div className="aligned">
+      <div className="top-bar">
+        <PostSong addNewSong={addSong}/>
+        <br></br>
+      </div>
       <SearchBar getResults={filterSongs}/>
       <br></br>
       <DisplayMusic list={songs} />
