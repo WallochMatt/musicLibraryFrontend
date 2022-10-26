@@ -25,12 +25,16 @@ function App() {
     let results;
 
     try{ 
-        results = songs.filter(function(song){
-            if(song.title.toLowerCase() === criteria.toLowerCase()){
-                console.log("match found");
+      results = songs.filter(function(song){
+            if(song.title.toLowerCase() === criteria.toLowerCase() || song.artist.toLowerCase() === criteria.toLowerCase() || 
+            song.album.toLowerCase() === criteria.toLowerCase() || song.genre.toLowerCase() === criteria.toLowerCase() ||
+            song.release_date.toLowerCase() === criteria.toLowerCase()){
+              
+              console.log("match found");
                 return true
             }
-        });
+          }
+      );
     }
     catch(err){
         console.log(err);
@@ -40,6 +44,7 @@ function App() {
       if(results.length === 0){
         console.log("Could not find");
         results = songs
+        getAllSongs() //keep for all songs on no match or remove so no matches do not reset list
       }
     }
     return setSongs(results)
@@ -60,13 +65,7 @@ function App() {
         console.log(err)
       }
     }
-    /* 
-    I'm Yer Dad
-    GRLwood
-    Daddy
-    Punk
-    2018-05-17
-    */
+
 
 
 

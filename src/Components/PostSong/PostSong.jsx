@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 
-
 const PostSong = (props) => {
 
     const [newTitle, setTitle] =useState('')
@@ -28,9 +27,6 @@ const PostSong = (props) => {
 
 
 
-
-
-
     return(
         <form>
             <span>
@@ -43,7 +39,7 @@ const PostSong = (props) => {
                 <label>Add Genre</label>
                 <input value={newGenre} onChange={(event) => setGenre(event.target.value)}></input>
                 <label>Add Release Date</label>
-                <input value={newRelease} onChange={(event) => setRelease(event.target.value)}></input>
+                <input type="date" value={newRelease} onChange={(event) => setRelease(event.target.value)}></input>
                 <button onClick={submit}>Add Song</button>
             </span>
         </form>
