@@ -2,6 +2,14 @@
 
 const DisplayMusic = (props) => {
 
+
+        function hitClick(event, song){
+            event.preventDefault();
+            props.removeSong(song)
+        }
+
+
+
         return(
         <table>
             <thead>
@@ -11,6 +19,7 @@ const DisplayMusic = (props) => {
                     <th>Album</th>
                     <th>Genre</th>
                     <th>Release Date</th>
+                    <th>Likes</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +31,8 @@ const DisplayMusic = (props) => {
                             <td>{song.album}</td>
                             <td>{song.genre}</td>
                             <td>{song.release_date}</td>
+                            <td>{song.likes}</td>
+                            <button onClick={(event) => hitClick(event, song)}>Delete</button>
                         </tr>
                             )
                     })

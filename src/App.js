@@ -70,8 +70,23 @@ function App() {
 
 
 
+    async function delSong(song){
+      console.log(song)
+      try{
+        let response  = await axios.delete(`http://127.0.0.1:8000/api/music/${song.id}/`, song)
+        if(response.status === 204){
+          await getAllSongs();
+        }
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+
 
     
+
+
   return (
     <div className="aligned">
       <div className="top-bar">
@@ -80,7 +95,7 @@ function App() {
       </div>
       <SearchBar getResults={filterSongs}/>
       <br></br>
-      <DisplayMusic list={songs} />
+      <DisplayMusic list={songs} removeSong={delSong}/>
     </div>
   );
 }
