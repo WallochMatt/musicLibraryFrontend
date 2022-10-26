@@ -17,8 +17,6 @@ const SearchBar = (props) => {
 
                 <label>Search</label>
                 <input value={search} onChange={(event) => setSearch(event.target.value)}></input>
-                {/* <button onClick={() => filterSongs()}>SEARCH</button>
-         */}
             </div>
         </form>
     )

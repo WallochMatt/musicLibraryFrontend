@@ -21,7 +21,6 @@ const PostSong = (props) => {
             release_date: `${newRelease}`,
             likes: 1,
         };
-        // console.log(newSong)
         props.addNewSong(newSong)
     }
 

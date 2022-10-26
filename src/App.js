@@ -3,9 +3,15 @@ import axios from 'axios';
 import SearchBar from './Components/SearchBar/SearchBar'
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import PostSong from './Components/PostSong/PostSong';
+import PutModal from './Components/PutModal/PutModal';
 import "./App.css"
 
 function App() {
+
+  const [putModal, setPutModal] = useState(false);
+  const [tempSong, setTempSong] = useState([])
+
+
 
   const [songs, setSongs] = useState([]);
   
@@ -15,10 +21,14 @@ function App() {
 
 
 
+
+
   async function getAllSongs(){
       let response = await axios.get('http://127.0.0.1:8000/api/music/');
       setSongs(response.data);
       }
+
+
 
 
 
@@ -54,37 +64,58 @@ function App() {
 
 
 
-    async function addSong(song){
-      try{
-        console.log("in addSong func, song is:", song)
-        let response = await axios.post('http://127.0.0.1:8000/api/music/', song);
-        if(response.status === 201){
-          await getAllSongs();
-        }
-      }
-      catch(err){
-        console.log(err)
+  async function addSong(song){
+    try{
+      console.log("in addSong func, song is:", song)
+      let response = await axios.post('http://127.0.0.1:8000/api/music/', song);
+      if(response.status === 201){
+        await getAllSongs();
       }
     }
-
-
-
-
-    async function delSong(song){
-      console.log(song)
-      try{
-        let response  = await axios.delete(`http://127.0.0.1:8000/api/music/${song.id}/`, song)
-        if(response.status === 204){
-          await getAllSongs();
-        }
-      }
-      catch(err){
-        console.log(err)
-      }
+    catch(err){
+      console.log(err)
     }
+  }
 
 
+
+
+  async function delSong(song){
     
+    try{
+      let response  = await axios.delete(`http://127.0.0.1:8000/api/music/${song.id}/`, song)
+      if(response.status === 204){
+        await getAllSongs();
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+
+
+
+  function modal(song){
+    setPutModal(true);
+    setTempSong(song)
+  }
+
+
+  async function putSong(song){
+    setPutModal(false);
+    try{
+      let response  = await axios.put(`http://127.0.0.1:8000/api/music/${song.id}/`, song)
+      if(response.status === 200){
+        await getAllSongs();
+      }
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+  
+
 
 
   return (
@@ -95,7 +126,8 @@ function App() {
       </div>
       <SearchBar getResults={filterSongs}/>
       <br></br>
-      <DisplayMusic list={songs} removeSong={delSong}/>
+      <DisplayMusic list={songs} removeSong={delSong} testModal={modal}/>
+      {putModal && <PutModal changeState={setPutModal} enterChange={putSong} tempToModal={tempSong}/>}
     </div>
   );
 }

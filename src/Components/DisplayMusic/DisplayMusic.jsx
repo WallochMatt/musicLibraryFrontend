@@ -8,7 +8,10 @@ const DisplayMusic = (props) => {
             props.removeSong(song)
         }
 
-
+        function showModal(event, song){
+            event.preventDefault();
+            props.testModal(song)
+        }
 
         return(
         <table>
@@ -26,6 +29,7 @@ const DisplayMusic = (props) => {
                 {props.list.map((song, index) => {
                     return(
                         <tr key={index}>
+                            
                             <td>{song.title}</td>
                             <td>{song.artist}</td>
                             <td>{song.album}</td>
@@ -34,6 +38,9 @@ const DisplayMusic = (props) => {
                             <td>{song.likes}</td>
                             <td>
                                 <button onClick={(event) => hitClick(event, song)}>Delete</button>
+                            </td>
+                            <td>
+                                <button onClick={(event) => showModal(event, song)}>Edit</button>
                             </td>
                         </tr>
                             )
