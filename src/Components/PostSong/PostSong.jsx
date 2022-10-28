@@ -31,16 +31,16 @@ const PostSong = (props) => {
         <form>
             <span>
                 <label className="spacer">Add Title:</label>
-                <input value={newTitle} onChange={(event) => setTitle(event.target.value)}></input>
+                <input data-cy="title-field" value={newTitle} onChange={(event) => setTitle(event.target.value)}></input>
                 <label className="spacer">Add Artist:</label>
-                <input value={newArtist} onChange={(event) => setArtist(event.target.value)}></input>
+                <input data-cy="artist-field" value={newArtist} onChange={(event) => setArtist(event.target.value)}></input>
                 <label className="spacer">Add Album:</label>
-                <input value={newAlbum} onChange={(event) => setAlbum(event.target.value)}></input>
+                <input data-cy="album-field" value={newAlbum} onChange={(event) => setAlbum(event.target.value)}></input>
                 <label className="spacer">Add Genre:</label>
-                <input value={newGenre} onChange={(event) => setGenre(event.target.value)}></input>
+                <input data-cy="genre-field" value={newGenre} onChange={(event) => setGenre(event.target.value)}></input>
                 <label className="spacer">Add Release Date:</label>
-                <input type="date" value={newRelease} onChange={(event) => setRelease(event.target.value)}></input>
-                <button className="spacer" onClick={submit}>Add Song</button>
+                <input data-cy="date-field" type="date" value={newRelease} onChange={(event) => setRelease(event.target.value)}></input>
+                <button data-cy="post-button" className="spacer" onClick={submit}>Add Song</button>
             </span>
         </form>
     )

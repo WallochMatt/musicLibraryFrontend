@@ -25,7 +25,7 @@ const DisplayMusic = (props) => {
                     <th>Likes</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody data-cy="music-table">
                 {props.list.map((song, index) => {
                     return(
                         <tr key={index}>
