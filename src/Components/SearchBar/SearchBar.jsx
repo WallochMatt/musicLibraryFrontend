@@ -16,7 +16,7 @@ const SearchBar = (props) => {
             <div className="pad">
 
                 <label>Search</label>
-                <input value={search} onChange={(event) => setSearch(event.target.value)}></input>
+                <input data-cy="srchbx" value={search} onChange={(event) => setSearch(event.target.value)}></input>
             </div>
         </form>
     )
