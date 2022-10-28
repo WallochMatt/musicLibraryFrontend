@@ -6,6 +6,7 @@ describe('With the search bar ', () => {
     .type('test')
     .wait(150) 
     .type('{enter}')
+    .should('have.value', 'test')
   })
 
   it('checks for the added song ', () => {
