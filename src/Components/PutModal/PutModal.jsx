@@ -45,19 +45,19 @@ const PutModal = (props) => {
                     </div>
                     <div>
                         <label >Change Title:</label>
-                        <input value={putTitle} onChange={(event) => setPutTitle(event.target.value)}></input>
+                        <input data-cy="modal-title" value={putTitle} onChange={(event) => setPutTitle(event.target.value)}></input>
                         <label >Change Artist:</label>
-                        <input value={putArtist} onChange={(event) => setPutArtist(event.target.value)}></input>
+                        <input data-cy="modal-artist" value={putArtist} onChange={(event) => setPutArtist(event.target.value)}></input>
                         <label >Change Album:</label>
-                        <input value={putAlbum} onChange={(event) => setPutAlbum(event.target.value)}></input>
+                        <input data-cy="modal-album" value={putAlbum} onChange={(event) => setPutAlbum(event.target.value)}></input>
                         <label >Change Genre:</label>
-                        <input value={putGenre} onChange={(event) => setPutGenre(event.target.value)}></input>
+                        <input data-cy="modal-genre" value={putGenre} onChange={(event) => setPutGenre(event.target.value)}></input>
                         <label >Change Release Date:</label>
-                        <input type="date" value={putRelease} onChange={(event) => setPutRelease(event.target.value)}></input>
+                        <input data-cy="modal-date" type="date" value={putRelease} onChange={(event) => setPutRelease(event.target.value)}></input>
                     </div>
                     <div>
-                        <button onClick={toggleModal}>Cancel</button>
-                        <button onClick={enter}>Enter</button>
+                        <button data-cy="modal-cancel" onClick={toggleModal}>Cancel</button>
+                        <button data-cy="modal-enter" onClick={enter}>Enter</button>
                     </div>
                 </div>
             </div>
