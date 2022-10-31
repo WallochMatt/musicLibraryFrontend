@@ -1,5 +1,3 @@
-import { click } from "@testing-library/user-event/dist/click"
-
 describe('In posting a song section: ', () => {
   
   it('Types in the add title box ', () => {
@@ -13,7 +11,7 @@ describe('In posting a song section: ', () => {
   it('Types in the add artist box',() => {
     cy.get('[data-cy="artist-field"]')
     .click('center')
-    .type('test2')
+    .type('test2') // HARD CODED: Change this to 'foo' for the second delete test
     .should('have.value', 'test2')  
   })
   
@@ -35,7 +33,7 @@ describe('In posting a song section: ', () => {
 
   it('Types in the date box',() => {
     cy.get('[data-cy="date-field"]')
-    // .click(105, 10) // for calendar click
+    // .click(105, 10) // for calendar icon click instead
     .click()
     .type('2022-10-10')
     .should('have.value', '2022-10-10')
